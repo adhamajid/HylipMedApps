@@ -1,0 +1,126 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:858772465721780869",
+      "lastPropertyId": "10:7862582522038274538",
+      "name": "Medicine",
+      "properties": [
+        {
+          "id": "1:4405505233926026148",
+          "name": "id"
+        },
+        {
+          "id": "2:1987378518037846417",
+          "name": "drugTypeId"
+        },
+        {
+          "id": "3:478811491491243773",
+          "name": "drugId"
+        },
+        {
+          "id": "4:3735298550751448636",
+          "name": "name"
+        },
+        {
+          "id": "5:5772273711614766471",
+          "name": "otherName"
+        },
+        {
+          "id": "6:1719660119863997643",
+          "name": "qty"
+        },
+        {
+          "id": "7:3135899040545409141",
+          "name": "consumed"
+        },
+        {
+          "id": "8:7573363298461553012",
+          "name": "consumedTime"
+        },
+        {
+          "id": "9:5281334726902743638",
+          "name": "dosis"
+        },
+        {
+          "id": "10:7862582522038274538",
+          "name": "times"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:6940228908888100509",
+      "lastPropertyId": "6:2017456003159416070",
+      "name": "MyAlarm",
+      "properties": [
+        {
+          "id": "1:6141892692144890191",
+          "name": "id"
+        },
+        {
+          "id": "2:7912013406578809905",
+          "name": "time"
+        },
+        {
+          "id": "3:4467852521986419238",
+          "name": "isActive"
+        },
+        {
+          "id": "4:1984374280066191549",
+          "name": "isRepeat"
+        },
+        {
+          "id": "5:6574993448527749238",
+          "name": "day"
+        },
+        {
+          "id": "6:2017456003159416070",
+          "name": "label"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:3477346276828821977",
+      "lastPropertyId": "5:8137153633540001456",
+      "name": "Terapi",
+      "properties": [
+        {
+          "id": "1:3462774103527011621",
+          "name": "disease"
+        },
+        {
+          "id": "2:7840315550603411188",
+          "name": "createdAt"
+        },
+        {
+          "id": "3:3379004308505973141",
+          "name": "id"
+        },
+        {
+          "id": "4:5912972463490954484",
+          "name": "title"
+        },
+        {
+          "id": "5:8137153633540001456",
+          "name": "content"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "3:3477346276828821977",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
