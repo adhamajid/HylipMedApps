@@ -1,0 +1,179 @@
+package com.windranger.reminder.util.ext
+
+import android.content.res.Resources
+import android.os.Build
+import android.support.design.widget.TextInputLayout
+import android.text.Html
+import android.util.Patterns
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
+
+
+/**
+ * Created by didik on 08/12/17.
+ */
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun pxToDp(px: Float): Int {
+    val metrics = Resources.getSystem().displayMetrics
+    val dp = px / (metrics.densityDpi / 160f)
+    return Math.round(dp)
+}
+
+fun dpToPx(dp: Float): Int {
+    val metrics = Resources.getSystem().displayMetrics
+    val px = dp * (metrics.densityDpi / 160f)
+    return Math.round(px)
+}
+
+fun EditText.isEmpty(): Boolean {
+    val str = text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Field cannot be blank"
+            requestFocus()
+            true
+        }
+        else -> false
+    }
+}
+
+fun EditText.isEmailInvalid(): Boolean {
+    val str = text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Email cannot be blank"
+            requestFocus()
+            true
+        }
+        !Patterns.EMAIL_ADDRESS.matcher(str).matches() -> {
+            error = "Invalid email address."
+            requestFocus()
+            true;
+        }
+        else -> false
+    }
+}
+
+fun EditText.isPasswordInvalid(): Boolean {
+    val str = text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Password cannot be blank"
+            requestFocus()
+            true
+        }
+        str.length < 6 -> {
+            error = "Password must be at least 6 characters"
+            requestFocus()
+            true;
+        }
+        else -> false
+    }
+}
+
+fun EditText.isPasswordNotMatch(firstPass: EditText): Boolean {
+    val str = text.toString()
+    val pass = firstPass.text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Password cannot be blank"
+            requestFocus()
+            true
+        }
+        str.length < 6 -> {
+            error = "Password must be at least 6 characters"
+            requestFocus()
+            true;
+        }
+        str != pass -> {
+            error = "Password do not match."
+            requestFocus()
+            true;
+        }
+        else -> false
+    }
+}
+
+fun TextInputLayout.isEmpty(): Boolean {
+    val str = editText?.text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Field cannot be blank"
+            requestFocus()
+            true
+        }
+        else -> {
+            error = ""
+            false
+        }
+    }
+}
+
+fun TextInputLayout.isEmailInvalid(): Boolean {
+    val str = editText?.text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Email cannot be blank"
+            requestFocus()
+            true
+        }
+        !Patterns.EMAIL_ADDRESS.matcher(str).matches() -> {
+            error = "Invalid email address."
+            requestFocus()
+            true;
+        }
+        else -> {
+            error = ""
+            false
+        }
+    }
+}
+
+fun TextInputLayout.isPasswordInvalid(): Boolean {
+    val str = editText?.text.toString()
+
+    return when {
+        str.isEmpty() -> {
+            error = "Password cannot be blank"
+            requestFocus()
+            true
+        }
+        str.length < 6 -> {
+            error = "Password must be at least 6 characters"
+            requestFocus()
+            true;
+        }
+        else -> {
+            error = ""
+            false
+        }
+    }
+}
+
+fun TextView.setHtml(text: String?) {
+    text?.let {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY))
+        } else {
+            setText(Html.fromHtml(text))
+        }
+    }
+}
